@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<h1>Welcome to My Feature Branch</h1>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Token Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="#" onclick="showSection('addToken')">Add Token</a>
+        <a href="#" onclick="showSection('editToken')">Edit Token</a>
+        <a href="#" onclick="showSection('deleteToken')">Delete Token</a>
+        <a href="#" onclick="showSection('reportToken')">Reports</a>
+        <a href="#" onclick="showSection('searchToken')">Search</a>
+        <a href="#" onclick="showSection('helpToken')">Help</a>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content" id="addToken">
+        <div class="card">
+            <h2>Add Token Entry</h2>
+            <form id="tokenForm">
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="gateNumber">Gate Number:</label>
+                    <select id="gateNumber" required>
+                        <option value="">Select Gate</option>
+                        <option value="1">Main Gate</option>
+                        <option value="2">Dummy Gate</option>
+                        <option value="3">MCCM Gate</option>
+                        <option value="4">SMD Gate</option>
+                        <option value="5">PPD Gate</option>
+                        <option value="6">HPDC Gate</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mealType">Meal Type:</label>
+                    <select id="mealType" required>
+                        <option value="">Select Meal Type</option>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Dinner">Dinner</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fromTokenNo">From Token No:</label>
+                    <input type="number" id="fromTokenNo" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="toTokenNo">To Token No:</label>
+                    <input type="number" id="toTokenNo" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="totalTokens">Total Tokens:</label>
+                    <input type="number" id="totalTokens" readonly>
+                </div>
+                <button type="button" onclick="submitToken()">Submit Token Entry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add sections for Edit, Delete, Reports, Search, and Help -->
+    <div class="content" id="editToken">
+        <div class="card">
+            <h2>Edit Token Entry</h2>
+            <table id="tokenTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Gate No.</th>
+                        <th>Meal Type</th>
+                        <th>From Token No</th>
+                        <th>To Token No</th>
+                        <th>Total Tokens</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="content" id="deleteToken">
+        <div class="card">
+            <h2>Delete Token Entry</h2>
+            <table id="deleteTokenTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Gate No.</th>
+                        <th>Meal Type</th>
+                        <th>From Token No</th>
+                        <th>To Token No</th>
+                        <th>Total Tokens</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="content" id="reportToken">
+        <div class="card">
+            <h2>Reports: Token Summary</h2>
+            <div id="reportContent"></div>
+            <button type="button" onclick="generateReport()">Generate Report</button>
+        </div>
+    </div>
+
+    <div class="content" id="searchToken">
+        <div class="card">
+            <h2>Search Token Entries</h2>
+            <input type="text" id="searchInput" placeholder="Search by Date or Gate No.">
+            <button type="button" onclick="searchTokens()">Search</button>
+            <table id="searchTokenTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Gate No.</th>
+                        <th>Meal Type</th>
+                        <th>From Token No</th>
+                        <th>To Token No</th>
+                        <th>Total Tokens</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="content" id="helpToken">
+        <div class="card">
+            <h2>Help</h2>
+            <p>Use this application to manage meal tokens. You can add, edit, delete, and generate reports of token entries.</p>
+        </div>
+    </div>
+
+</body>
+</html>
